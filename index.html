@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMORIA · Destello</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root{
+  --rose:#f8d7de;
+  --rose-soft:#fdf0f2;
+  --wine:#6b1e34;
+  --wine-deep:#4a1224;
+  --red:#c2334d;
+  --gold:#c9a45c;
+  --gold-soft:#e8d3a2;
+  --white:#fffdfd;
+  --ink:#3b2a30;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Montserrat',sans-serif;
+  font-weight:300;
+  color:var(--ink);
+  background:var(--rose-soft);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+section{padding:72px 20px;position:relative}
+.container{max-width:960px;margin:0 auto}
+.eyebrow{
+  text-align:center;font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;margin-bottom:10px;
+}
+.title{
+  font-family:'Cormorant Garamond',serif;font-weight:600;text-align:center;
+  font-size:clamp(1.9rem,6vw,2.8rem);color:var(--wine);margin-bottom:12px;
+}
+.divider{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--gold);margin:0 auto 40px}
+.divider::before,.divider::after{content:"";width:56px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.divider::after{transform:scaleX(-1)}
+.divider i{font-size:.8rem}
+
+/* HERO */
+.hero{
+  min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;
+  background:
+    radial-gradient(circle at 20% 15%,rgba(201,164,92,.18),transparent 45%),
+    radial-gradient(circle at 85% 85%,rgba(194,51,77,.25),transparent 50%),
+    linear-gradient(160deg,var(--wine-deep),var(--wine) 60%,#8a2842);
+  color:var(--white);overflow:hidden;padding:60px 20px;
+}
+.hero .brand{
+  position:absolute;top:22px;left:0;right:0;font-size:.7rem;letter-spacing:.5em;
+  color:var(--gold-soft);text-transform:uppercase;
+}
+.hero h2{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;
+  font-size:clamp(1.2rem,4vw,1.6rem);color:var(--gold-soft);margin-bottom:6px;
+}
+.hero h1{
+  font-family:'Great Vibes',cursive;font-weight:400;
+  font-size:clamp(3rem,15vw,6.5rem);line-height:1.1;margin:6px 0 4px;
+  background:linear-gradient(180deg,#fff,var(--rose));-webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 4px 18px rgba(0,0,0,.25));
+}
+.hero h1 .amp{color:var(--gold);-webkit-text-fill-color:var(--gold)}
+.since{font-size:.78rem;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);margin-bottom:34px}
+
+.counter{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:520px;margin:0 auto}
+.unit{
+  background:rgba(255,255,255,.08);border:1px solid rgba(201,164,92,.45);
+  border-radius:14px;padding:16px 4px;backdrop-filter:blur(6px);
+}
+.unit span{display:block;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(1.7rem,8vw,2.6rem);line-height:1}
+.unit small{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft)}
+.counter-caption{margin-top:20px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--rose)}
+
+.scroll-hint{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:var(--gold-soft);animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+.floating-hearts{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.floating-hearts i{
+  position:absolute;bottom:-30px;color:var(--rose);opacity:0;
+  animation:rise linear infinite;
+}
+@keyframes rise{
+  0%{transform:translateY(0) rotate(0);opacity:0}
+  10%{opacity:.5}
+  100%{transform:translateY(-110vh) rotate(40deg);opacity:0}
+}
+
+/* PHOTOS */
+.photos{background:var(--white)}
+.gallery{display:grid;grid-template-columns:1fr;gap:18px}
+.photo{
+  position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;
+  box-shadow:0 14px 34px rgba(107,30,52,.18);
+  border:6px solid var(--white);outline:1px solid var(--gold-soft);
+  background:linear-gradient(135deg,var(--rose),var(--gold-soft));
+  transition:transform .5s ease;
+}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
+.photo:hover img{transform:scale(1.06)}
+.photo figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;
+  background:linear-gradient(transparent,rgba(74,18,36,.85));
+  color:var(--white);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.15rem;text-align:center;
+}
+.photo:nth-child(2){transform:translateY(0)}
+
+/* LETTER */
+.letter-wrap{background:linear-gradient(180deg,var(--rose-soft),var(--rose))}
+.letter{
+  max-width:640px;margin:0 auto;background:var(--white);
+  padding:44px 28px;border-radius:6px;position:relative;
+  box-shadow:0 18px 44px rgba(107,30,52,.18);
+  border-top:4px solid var(--gold);
+}
+.letter::before{
+  content:"\201C";font-family:'Cormorant Garamond',serif;position:absolute;top:-6px;left:18px;
+  font-size:6rem;color:var(--rose);line-height:1;
+}
+.letter .to{font-family:'Great Vibes',cursive;font-size:2rem;color:var(--red);margin-bottom:12px}
+.letter p{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,3.8vw,1.4rem);
+  line-height:1.8;color:var(--ink);margin-bottom:14px;
+}
+.letter .sign{font-family:'Great Vibes',cursive;font-size:2.2rem;color:var(--wine);text-align:right;margin-top:16px}
+
+/* MUSIC */
+.music{background:var(--white)}
+.player{
+  max-width:400px;margin:0 auto;border-radius:22px;padding:22px;
+  background:linear-gradient(160deg,var(--wine-deep),var(--wine));
+  color:var(--white);box-shadow:0 20px 44px rgba(74,18,36,.4);
+}
+.player .label{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.cover{
+  width:100%;aspect-ratio:1/1;border-radius:14px;margin-bottom:18px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 30% 25%,rgba(255,255,255,.35),transparent 40%),
+    linear-gradient(135deg,var(--red),var(--wine) 55%,var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 10px 26px rgba(0,0,0,.35);
+}
+.cover i{font-size:5rem;color:rgba(255,255,255,.9);filter:drop-shadow(0 6px 14px rgba(0,0,0,.3))}
+.player.playing .cover i{animation:beat 1.1s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+.song-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;line-height:1.2}
+.song-artist{font-size:.8rem;color:var(--rose);margin-bottom:18px;letter-spacing:.05em}
+.progress{height:4px;background:rgba(255,255,255,.2);border-radius:4px;cursor:pointer;position:relative}
+.progress .bar{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-soft));border-radius:4px;position:relative}
+.progress .bar::after{content:"";position:absolute;right:-6px;top:-4px;width:12px;height:12px;border-radius:50%;background:var(--gold-soft)}
+.times{display:flex;justify-content:space-between;font-size:.68rem;color:var(--rose);margin:8px 0 14px}
+.controls{display:flex;align-items:center;justify-content:center;gap:26px}
+.controls button{background:none;border:none;color:var(--white);cursor:pointer;font-size:1.1rem;opacity:.8;transition:.2s}
+.controls button:hover{opacity:1;transform:scale(1.1)}
+.controls .play{
+  width:62px;height:62px;border-radius:50%;opacity:1;font-size:1.3rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));color:var(--wine-deep);
+  box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+.controls .play:hover{transform:scale(1.07)}
+
+/* FOOTER */
+footer{
+  background:var(--wine-deep);color:var(--rose);text-align:center;
+  padding:26px 20px;font-size:.75rem;letter-spacing:.12em;
+}
+footer b{color:var(--gold-soft);font-weight:500}
+footer .heart{color:#ff5470}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+.reveal.show{opacity:1;transform:none}
+
+@media(min-width:760px){
+  section{padding:100px 30px}
+  .gallery{grid-template-columns:repeat(3,1fr);gap:26px}
+  .photo:nth-child(2){transform:translateY(28px)}
+  .letter{padding:60px 56px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="brand">AMORIA · Destello</div>
+  <div class="floating-hearts" id="hearts"></div>
+  <div class="container">
+    <h2 id="heroTitle">Nuestra Historia de Amor</h2>
+    <h1 id="names">Mateo <span class="amp">&amp;</span> Camila</h1>
+    <p class="since" id="sinceText"></p>
+    <div class="counter" aria-live="off">
+      <div class="unit"><span id="d">0</span><small>Días</small></div>
+      <div class="unit"><span id="h">0</span><small>Horas</small></div>
+      <div class="unit"><span id="m">0</span><small>Minutos</small></div>
+      <div class="unit"><span id="s">0</span><small>Segundos</small></div>
+    </div>
+    <p class="counter-caption">y contando cada latido a tu lado</p>
+  </div>
+  <a href="#fotos" class="scroll-hint" aria-label="Bajar"><i class="fa-solid fa-chevron-down"></i></a>
+</header>
+
+<!-- FOTOS -->
+<section class="photos" id="fotos">
+  <div class="container">
+    <p class="eyebrow">Momentos</p>
+    <h2 class="title reveal">Nuestros Recuerdos</h2>
+    <div class="divider reveal"><i class="fa-solid fa-heart"></i></div>
+    <div class="gallery">
+      <figure class="photo reveal">
+        <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=800&q=80" alt="Foto 1 de la pareja" loading="lazy" onerror="this.style.display='none'">
+        <figcaption>Donde todo comenzó</figcaption>
+      </figure>
+      <figure class="photo reveal">
+        <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=800&q=80" alt="Foto 2 de la pareja" loading="lazy" onerror="this.style.display='none'">
+        <figcaption>Nuestra complicidad</figcaption>
+      </figure>
+      <figure class="photo reveal">
+        <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80" alt="Foto 3 de la pareja" loading="lazy" onerror="this.style.display='none'">
+        <figcaption>Siempre contigo</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CARTA -->
+<section class="letter-wrap">
+  <div class="container">
+    <p class="eyebrow">Para ti</p>
+    <h2 class="title reveal">Una Carta de Amor</h2>
+    <div class="divider reveal"><i class="fa-solid fa-feather-pointed"></i></div>
+    <article class="letter reveal">
+      <div class="to" id="letterTo">Mi Camila,</div>
+      <p id="letterBody">Contigo aprendí que el amor no es una palabra grande, sino un montón de pequeños destellos: tu risa en la mañana, tu mano buscando la mía, tu forma de hacer que cualquier lugar se sienta como casa.</p>
+      <p>Gracias por elegirme cada día. Si pudiera volver a empezar, te encontraría mil veces más.</p>
+      <div class="sign" id="letterSign">Tuyo, Mateo</div>
+    </article>
+  </div>
+</section>
+
+<!-- MÚSICA -->
+<section class="music">
+  <div class="container">
+    <p class="eyebrow">Nuestra banda sonora</p>
+    <h2 class="title reveal">La Canción de Nosotros</h2>
+    <div class="divider reveal"><i class="fa-solid fa-music"></i></div>
+
+    <div class="player reveal" id="player">
+      <div class="label"><i class="fa-solid fa-circle-play"></i> Reproduciendo ahora</div>
+      <div class="cover"><i class="fa-solid fa-heart"></i></div>
+      <div class="song-title" id="songTitle">Nuestra Canción</div>
+      <div class="song-artist" id="songArtist">Artista · Álbum Destello</div>
+      <div class="progress" id="progress"><div class="bar" id="bar"></div></div>
+      <div class="times"><span id="cur">0:00</span><span id="dur">3:30</span></div>
+      <div class="controls">
+        <button id="back" aria-label="Retroceder 10 segundos"><i class="fa-solid fa-backward-step"></i></button>
+        <button class="play" id="play" aria-label="Reproducir / Pausar"><i class="fa-solid fa-play" id="playIcon"></i></button>
+        <button id="fwd" aria-label="Adelantar 10 segundos"><i class="fa-solid fa-forward-step"></i></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Creado con <span class="heart">❤️</span> por <b>AMORIA</b></footer>
+
+<audio id="audio" preload="none"></audio>
+
+<script>
+/* ============ CONFIGURACIÓN (edita aquí) ============ */
+const CONFIG = {
+  nombre1: "Mateo",
+  nombre2: "Camila",
+  fechaInicio: "2024-02-14T00:00:00",     // fecha y hora de inicio de la relación
+  carta: {
+    para: "Mi Camila,",
+    cuerpo: "Contigo aprendí que el amor no es una palabra grande, sino un montón de pequeños destellos: tu risa en la mañana, tu mano buscando la mía, tu forma de hacer que cualquier lugar se sienta como casa.",
+    firma: "Tuyo, Mateo"
+  },
+  cancion: {
+    titulo: "Nuestra Canción",
+    artista: "Artista · Álbum Destello",
+    // Pon aquí tu MP3 real. Si falla o está vacío, se usa una simulación visual.
+    audioUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    duracionSimulada: 210                  // segundos (solo para la simulación)
+  }
+};
+/* ====================================================== */
+
+// Textos
+document.getElementById('names').innerHTML = `${CONFIG.nombre1} <span class="amp">&amp;</span> ${CONFIG.nombre2}`;
+document.getElementById('letterTo').textContent = CONFIG.carta.para;
+document.getElementById('letterBody').textContent = CONFIG.carta.cuerpo;
+document.getElementById('letterSign').textContent = CONFIG.carta.firma;
+document.getElementById('songTitle').textContent = CONFIG.cancion.titulo;
+document.getElementById('songArtist').textContent = CONFIG.cancion.artista;
+
+const inicio = new Date(CONFIG.fechaInicio);
+document.getElementById('sinceText').textContent =
+  'Desde el ' + inicio.toLocaleDateString('es-CO',{day:'numeric',month:'long',year:'numeric'});
+
+// Contador
+const $ = id => document.getElementById(id);
+function tick(){
+  let diff = Math.max(0, Date.now() - inicio.getTime());
+  const sec = Math.floor(diff/1000);
+  $('d').textContent = Math.floor(sec/86400);
+  $('h').textContent = String(Math.floor(sec%86400/3600)).padStart(2,'0');
+  $('m').textContent = String(Math.floor(sec%3600/60)).padStart(2,'0');
+  $('s').textContent = String(sec%60).padStart(2,'0');
+}
+tick(); setInterval(tick,1000);
+
+// Corazones flotantes
+const heartsBox = $('hearts');
+for(let i=0;i<14;i++){
+  const h = document.createElement('i');
+  h.className = 'fa-solid fa-heart';
+  h.style.left = Math.random()*100+'%';
+  h.style.fontSize = (10+Math.random()*18)+'px';
+  h.style.animationDuration = (8+Math.random()*10)+'s';
+  h.style.animationDelay = (Math.random()*10)+'s';
+  heartsBox.appendChild(h);
+}
+
+// Reveal al hacer scroll
+const io = new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// Reproductor
+const audio = $('audio'), player = $('player'), playBtn = $('play'), icon = $('playIcon');
+const bar = $('bar'), cur = $('cur'), dur = $('dur'), progress = $('progress');
+let simulated = !CONFIG.cancion.audioUrl;
+let simTime = 0, simTimer = null, playing = false;
+if(!simulated) audio.src = CONFIG.cancion.audioUrl;
+
+const fmt = s => `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+const total = () => simulated ? CONFIG.cancion.duracionSimulada : (audio.duration || CONFIG.cancion.duracionSimulada);
+const current = () => simulated ? simTime : audio.currentTime;
+
+function render(){
+  const t = total(), c = current();
+  bar.style.width = Math.min(100,(c/t)*100)+'%';
+  cur.textContent = fmt(c); dur.textContent = fmt(t);
+}
+function setUI(p){
+  playing = p;
+  player.classList.toggle('playing',p);
+  icon.className = p ? 'fa-solid fa-pause' : 'fa-solid fa-play';
+}
+function startSim(){
+  clearInterval(simTimer);
+  simTimer = setInterval(()=>{
+    simTime += .25;
+    if(simTime >= CONFIG.cancion.duracionSimulada){ simTime = 0; clearInterval(simTimer); setUI(false); }
+    render();
+  },250);
+}
+function switchToSim(){
+  if(simulated) return;
+  simulated = true; simTime = 0;
+  if(playing) startSim();
+}
+async function toggle(){
+  if(playing){
+    if(simulated) clearInterval(simTimer); else audio.pause();
+    setUI(false); return;
+  }
+  if(simulated){ startSim(); setUI(true); return; }
+  try{ await audio.play(); setUI(true); }
+  catch(e){ switchToSim(); startSim(); setUI(true); }
+}
+playBtn.addEventListener('click',toggle);
+audio.addEventListener('timeupdate',render);
+audio.addEventListener('loadedmetadata',render);
+audio.addEventListener('ended',()=>{ setUI(false); audio.currentTime = 0; render(); });
+audio.addEventListener('error',switchToSim);
+
+function seek(delta){
+  const t = total();
+  const n = Math.min(t, Math.max(0, current()+delta));
+  if(simulated) simTime = n; else audio.currentTime = n;
+  render();
+}
+$('back').addEventListener('click',()=>seek(-10));
+$('fwd').addEventListener('click',()=>seek(10));
+progress.addEventListener('click',e=>{
+  const r = progress.getBoundingClientRect();
+  const n = ((e.clientX - r.left)/r.width)*total();
+  if(simulated) simTime = n; else audio.currentTime = n;
+  render();
+});
+render();
+</script>
+</body>
+</html>
